@@ -1,0 +1,41 @@
+{
+  "name": "sobject-parser",
+  "version": "1.0.0",
+  "description": "A parser for Salesforce REST API sObject Describe Request",
+  "main": "index.js",
+  "scripts": {
+    "fix:other": "npm run prettier --write",
+    "fix:code": "npm run test:code --fix",
+    "fix": "npm run fix:code && npm run fix:other",
+    "prettier": "prettier \"**/*.{json,md,scss,yaml,yml}\"",
+    "test:other": "npm run prettier --list-different",
+    "test:code": "eslint --ignore-path .gitignore --ignore-path .prettierignore --ext .js,.jsx .",
+    "test": "npm run test:other && npm run test:code"
+  },
+  "author": "Hugo \"Hrafven\" Bidois",
+  "license": "ISC",
+  "dependencies": {
+    "yargs": "^17.3.1"
+  },
+  "devDependencies": {
+    "eslint": "8.11.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-prettier": "4.0.0",
+    "husky": "7.0.4",
+    "lint-staged": "12.3.7",
+    "prettier": "2.6.0"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint --fix"
+    ],
+    "*.{json,md,scss,yaml,yml}": [
+      "prettier --write"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}
