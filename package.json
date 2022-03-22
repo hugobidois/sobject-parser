@@ -4,6 +4,7 @@
   "description": "A parser for Salesforce REST API sObject Describe Request",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "fix:other": "npm run prettier --write",
     "fix:code": "npm run test:code --fix",
     "fix": "npm run fix:code && npm run fix:other",
